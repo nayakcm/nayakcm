@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Ans code:</strong>
+  <%= @answer.ans_code %>
+</p>
+
+<p>
+  <strong>Language:</strong>
+  <%= @answer.language %>
+</p>
+
+<p>
+  <strong>Time taken:</strong>
+  <%= @answer.time_taken %>
+</p>
+
+<p>
+  <strong>Remark:</strong>
+  <%= @answer.remark %>
+</p>
+
+<%= link_to 'Edit', edit_answer_path(@answer) %> |
+<%= link_to 'Back', answers_path %>

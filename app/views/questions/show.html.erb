@@ -1,0 +1,25 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Title:</strong>
+  <%= @question.title %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @question.description %>
+</p>
+
+<p>
+  <strong>Level:</strong>
+  <%= @question.level %>
+</p>
+
+<p>
+  <strong>Time taken:</strong>
+  <%= @question.time_taken %>
+</p>
+
+<p><%= link_to 'Answer the question', new_question_answer_path(@question) %></p>
+<%= link_to 'Edit', edit_question_path(@question) %> |
+<%= link_to 'Back', questions_path %>

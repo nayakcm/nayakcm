@@ -1,0 +1,1432 @@
+  [1m[35m (0.3ms)[0m  [1m[35mCREATE DATABASE `intro_development` DEFAULT CHARACTER SET `utf8mb4`[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE DATABASE `intro_test` DEFAULT CHARACTER SET `utf8mb4`[0m
+  [1m[35m (11.6ms)[0m  [1m[35mCREATE TABLE `schema_migrations` (`version` varchar(255) NOT NULL PRIMARY KEY)[0m
+  [1m[35m (13.9ms)[0m  [1m[35mCREATE TABLE `ar_internal_metadata` (`key` varchar(255) NOT NULL PRIMARY KEY, `value` varchar(255), `created_at` datetime(6) NOT NULL, `updated_at` datetime(6) NOT NULL)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT GET_LOCK('4733270473093800225', 0)[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.3ms)[0m  [1m[34mSELECT `ar_internal_metadata`.* FROM `ar_internal_metadata` WHERE `ar_internal_metadata`.`key` = 'environment' LIMIT 1[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mActiveRecord::InternalMetadata Create (0.2ms)[0m  [1m[32mINSERT INTO `ar_internal_metadata` (`key`, `value`, `created_at`, `updated_at`) VALUES ('environment', 'development', '2021-04-18 04:47:22.228076', '2021-04-18 04:47:22.228076')[0m
+  [1m[36mTRANSACTION (2.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT RELEASE_LOCK('4733270473093800225')[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+Started GET "/" for ::1 at 2021-04-18 10:29:48 +0530
+  [1m[35m (0.9ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+  
+ActiveRecord::PendingMigrationError (
+
+Migrations are pending. To resolve this issue, run:
+
+        bin/rails db:migrate RAILS_ENV=development
+
+You have 1 pending migration:
+
+20210418045828_create_articles.rb
+
+
+):
+  
+activerecord (6.1.3.1) lib/active_record/migration.rb:625:in `check_pending!'
+activerecord (6.1.3.1) lib/active_record/migration.rb:590:in `block (2 levels) in call'
+activesupport (6.1.3.1) lib/active_support/evented_file_update_checker.rb:59:in `execute'
+activerecord (6.1.3.1) lib/active_record/migration.rb:595:in `block in call'
+activerecord (6.1.3.1) lib/active_record/migration.rb:587:in `synchronize'
+activerecord (6.1.3.1) lib/active_record/migration.rb:587:in `call'
+actionpack (6.1.3.1) lib/action_dispatch/middleware/callbacks.rb:27:in `block in call'
+activesupport (6.1.3.1) lib/active_support/callbacks.rb:98:in `run_callbacks'
+actionpack (6.1.3.1) lib/action_dispatch/middleware/callbacks.rb:26:in `call'
+actionpack (6.1.3.1) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (6.1.3.1) lib/action_dispatch/middleware/actionable_exceptions.rb:18:in `call'
+actionpack (6.1.3.1) lib/action_dispatch/middleware/debug_exceptions.rb:29:in `call'
+web-console (4.1.0) lib/web_console/middleware.rb:132:in `call_app'
+web-console (4.1.0) lib/web_console/middleware.rb:28:in `block in call'
+web-console (4.1.0) lib/web_console/middleware.rb:17:in `catch'
+web-console (4.1.0) lib/web_console/middleware.rb:17:in `call'
+actionpack (6.1.3.1) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (6.1.3.1) lib/rails/rack/logger.rb:37:in `call_app'
+railties (6.1.3.1) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (6.1.3.1) lib/active_support/tagged_logging.rb:99:in `block in tagged'
+activesupport (6.1.3.1) lib/active_support/tagged_logging.rb:37:in `tagged'
+activesupport (6.1.3.1) lib/active_support/tagged_logging.rb:99:in `tagged'
+railties (6.1.3.1) lib/rails/rack/logger.rb:26:in `call'
+sprockets-rails (3.2.2) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (6.1.3.1) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (6.1.3.1) lib/action_dispatch/middleware/request_id.rb:26:in `call'
+rack (2.2.3) lib/rack/method_override.rb:24:in `call'
+rack (2.2.3) lib/rack/runtime.rb:22:in `call'
+activesupport (6.1.3.1) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (6.1.3.1) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (6.1.3.1) lib/action_dispatch/middleware/static.rb:24:in `call'
+rack (2.2.3) lib/rack/sendfile.rb:110:in `call'
+actionpack (6.1.3.1) lib/action_dispatch/middleware/host_authorization.rb:98:in `call'
+rack-mini-profiler (2.3.1) lib/mini_profiler/profiler.rb:373:in `call'
+webpacker (5.2.1) lib/webpacker/dev_server_proxy.rb:25:in `perform_request'
+rack-proxy (0.6.5) lib/rack/proxy.rb:57:in `call'
+railties (6.1.3.1) lib/rails/engine.rb:539:in `call'
+puma (5.2.2) lib/puma/configuration.rb:248:in `call'
+puma (5.2.2) lib/puma/request.rb:76:in `block in handle_request'
+puma (5.2.2) lib/puma/thread_pool.rb:337:in `with_force_shutdown'
+puma (5.2.2) lib/puma/request.rb:75:in `handle_request'
+puma (5.2.2) lib/puma/server.rb:431:in `process_client'
+puma (5.2.2) lib/puma/thread_pool.rb:145:in `block in spawn_thread'
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT GET_LOCK('4733270473093800225', 0)[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+Migrating to CreateArticles (20210418045828)
+  [1m[35m (21.0ms)[0m  [1m[35mCREATE TABLE `articles` (`id` bigint NOT NULL AUTO_INCREMENT PRIMARY KEY, `title` varchar(255), `body` text, `created_at` datetime(6) NOT NULL, `updated_at` datetime(6) NOT NULL)[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.2ms)[0m  [1m[32mINSERT INTO `schema_migrations` (`version`) VALUES ('20210418045828')[0m
+  [1m[36mTRANSACTION (3.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.3ms)[0m  [1m[34mSELECT `ar_internal_metadata`.* FROM `ar_internal_metadata` WHERE `ar_internal_metadata`.`key` = 'environment' LIMIT 1[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT RELEASE_LOCK('4733270473093800225')[0m
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+Started GET "/" for ::1 at 2021-04-18 10:39:33 +0530
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+  
+ActionController::RoutingError (uninitialized constant ArticleController
+Did you mean?  ArticlesController):
+  
+Started GET "/" for ::1 at 2021-04-18 10:39:47 +0530
+Processing by ArticlesController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering articles/index.html.erb within layouts/application
+  [1m[36mArticle Load (2.6ms)[0m  [1m[34mSELECT `articles`.* FROM `articles`[0m
+  ↳ app/views/articles/index.html.erb:15
+  Rendered articles/index.html.erb within layouts/application (Duration: 7.3ms | Allocations: 1102)
+[Webpacker] Compiling...
+[Webpacker] Compiled all packs in /home/sharathcm/workspace/ROR/intro/public/packs
+[Webpacker] Hash: e332c6419728fac579d5
+Version: webpack 4.46.0
+Time: 2902ms
+Built at: 18/04/2021 10:39:52 am
+                                     Asset       Size       Chunks                         Chunk Names
+    js/application-f826770d917d8a37c1d8.js    125 KiB  application  [emitted] [immutable]  application
+js/application-f826770d917d8a37c1d8.js.map    139 KiB  application  [emitted] [dev]        application
+                             manifest.json  364 bytes               [emitted]              
+Entrypoint application = js/application-f826770d917d8a37c1d8.js js/application-f826770d917d8a37c1d8.js.map
+[./app/javascript/channels sync recursive _channel\.js$] ./app/javascript/channels sync _channel\.js$ 160 bytes {application} [built]
+[./app/javascript/channels/index.js] 211 bytes {application} [built]
+[./app/javascript/packs/application.js] 492 bytes {application} [built]
+[./node_modules/webpack/buildin/module.js] (webpack)/buildin/module.js 552 bytes {application} [built]
+    + 3 hidden modules
+
+  Rendered layout layouts/application.html.erb (Duration: 4833.6ms | Allocations: 21049)
+Completed 200 OK in 4853ms (Views: 4836.6ms | ActiveRecord: 2.6ms | Allocations: 23833)
+
+
+DEPRECATION WARNING: [] is deprecated and will be removed from Rails 6.2 (Use configs_for) (called from migration_template at (erb):6)
+DEPRECATION WARNING: [] is deprecated and will be removed from Rails 6.2 (Use configs_for) (called from migration_template at (erb):6)
+DEPRECATION WARNING: [] is deprecated and will be removed from Rails 6.2 (Use configs_for) (called from <main> at /home/sharathcm/workspace/ROR/intro/bin/rails:5)
+DEPRECATION WARNING: [] is deprecated and will be removed from Rails 6.2 (Use configs_for) (called from <main> at /home/sharathcm/workspace/ROR/intro/bin/rails:5)
+DEPRECATION WARNING: [] is deprecated and will be removed from Rails 6.2 (Use configs_for) (called from <main> at /home/sharathcm/workspace/ROR/intro/bin/rails:5)
+DEPRECATION WARNING: [] is deprecated and will be removed from Rails 6.2 (Use configs_for) (called from <main> at /home/sharathcm/workspace/ROR/intro/bin/rails:5)
+DEPRECATION WARNING: [] is deprecated and will be removed from Rails 6.2 (Use configs_for) (called from <main> at /home/sharathcm/workspace/ROR/intro/bin/rails:5)
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT GET_LOCK('4733270473093800225', 0)[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+Migrating to DeviseCreateUsers (20210418051204)
+  [1m[35m (23.9ms)[0m  [1m[35mCREATE TABLE `users` (`id` bigint NOT NULL AUTO_INCREMENT PRIMARY KEY, `name` varchar(255), `email` varchar(255) DEFAULT '' NOT NULL, `encrypted_password` varchar(255) DEFAULT '' NOT NULL, `reset_password_token` varchar(255), `reset_password_sent_at` datetime, `remember_created_at` datetime, `sign_in_count` int DEFAULT 0 NOT NULL, `current_sign_in_at` datetime, `last_sign_in_at` datetime, `current_sign_in_ip` varchar(255), `last_sign_in_ip` varchar(255), `created_at` datetime(6) NOT NULL, `updated_at` datetime(6) NOT NULL)[0m
+  [1m[35m (14.8ms)[0m  [1m[35mCREATE UNIQUE INDEX `index_users_on_email` ON `users` (`email`)[0m
+  [1m[35m (14.1ms)[0m  [1m[35mCREATE UNIQUE INDEX `index_users_on_reset_password_token` ON `users` (`reset_password_token`)[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.4ms)[0m  [1m[32mINSERT INTO `schema_migrations` (`version`) VALUES ('20210418051204')[0m
+  [1m[36mTRANSACTION (3.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.3ms)[0m  [1m[34mSELECT `ar_internal_metadata`.* FROM `ar_internal_metadata` WHERE `ar_internal_metadata`.`key` = 'environment' LIMIT 1[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT RELEASE_LOCK('4733270473093800225')[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+Started GET "/users/sign_up" for ::1 at 2021-04-18 11:00:48 +0530
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+Processing by Devise::RegistrationsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering /home/sharathcm/.rvm/gems/ruby-2.7.2/gems/devise-4.7.3/app/views/devise/registrations/new.html.erb within layouts/application
+  Rendered /home/sharathcm/.rvm/gems/ruby-2.7.2/gems/devise-4.7.3/app/views/devise/shared/_error_messages.html.erb (Duration: 0.6ms | Allocations: 227)
+  Rendered /home/sharathcm/.rvm/gems/ruby-2.7.2/gems/devise-4.7.3/app/views/devise/shared/_links.html.erb (Duration: 0.9ms | Allocations: 531)
+  Rendered /home/sharathcm/.rvm/gems/ruby-2.7.2/gems/devise-4.7.3/app/views/devise/registrations/new.html.erb within layouts/application (Duration: 17.3ms | Allocations: 8670)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 33.7ms | Allocations: 13958)
+Completed 200 OK in 57ms (Views: 40.4ms | ActiveRecord: 1.5ms | Allocations: 24564)
+
+
+Started GET "/users/sign_up" for ::1 at 2021-04-18 11:04:15 +0530
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+Processing by Devise::RegistrationsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/registrations/new.html.erb within layouts/application
+  Rendered devise/shared/_error_messages.html.erb (Duration: 0.7ms | Allocations: 225)
+  Rendered devise/shared/_links.html.erb (Duration: 0.7ms | Allocations: 529)
+  Rendered devise/registrations/new.html.erb within layouts/application (Duration: 9.8ms | Allocations: 6520)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 25.8ms | Allocations: 11812)
+Completed 200 OK in 45ms (Views: 28.6ms | ActiveRecord: 1.9ms | Allocations: 22272)
+
+
+Started GET "/users/sign_up" for ::1 at 2021-04-18 11:04:24 +0530
+Processing by Devise::RegistrationsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/registrations/new.html.erb within layouts/application
+  Rendered devise/shared/_error_messages.html.erb (Duration: 0.4ms | Allocations: 43)
+  Rendered devise/shared/_links.html.erb (Duration: 0.8ms | Allocations: 104)
+  Rendered devise/registrations/new.html.erb within layouts/application (Duration: 12.7ms | Allocations: 1056)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 33.0ms | Allocations: 4107)
+Completed 200 OK in 37ms (Views: 34.8ms | ActiveRecord: 0.0ms | Allocations: 4638)
+
+
+Started GET "/users/" for ::1 at 2021-04-18 11:04:34 +0530
+  
+ActionController::RoutingError (No route matches [GET] "/users"):
+  
+Started GET "/users/sign_up" for ::1 at 2021-04-18 11:05:21 +0530
+Processing by Devise::RegistrationsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/registrations/new.html.erb within layouts/application
+  Rendered devise/shared/_error_messages.html.erb (Duration: 0.2ms | Allocations: 44)
+  Rendered devise/shared/_links.html.erb (Duration: 3.8ms | Allocations: 107)
+  Rendered devise/registrations/new.html.erb within layouts/application (Duration: 9.4ms | Allocations: 1156)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 19.0ms | Allocations: 4332)
+Completed 200 OK in 22ms (Views: 20.8ms | ActiveRecord: 0.0ms | Allocations: 4992)
+
+
+Started GET "/users/sign_up" for ::1 at 2021-04-18 11:06:48 +0530
+Processing by Devise::RegistrationsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/registrations/new.html.erb within layouts/application
+  Rendered devise/shared/_error_messages.html.erb (Duration: 1.8ms | Allocations: 213)
+  Rendered devise/shared/_links.html.erb (Duration: 1.3ms | Allocations: 479)
+  Rendered devise/registrations/new.html.erb within layouts/application (Duration: 12.5ms | Allocations: 2426)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 23.8ms | Allocations: 5650)
+Completed 200 OK in 33ms (Views: 31.2ms | ActiveRecord: 0.0ms | Allocations: 7326)
+
+
+Started GET "/users/sign_up" for ::1 at 2021-04-18 11:07:25 +0530
+Processing by Devise::RegistrationsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/registrations/new.html.erb within layouts/application
+  Rendered devise/shared/_error_messages.html.erb (Duration: 1.8ms | Allocations: 213)
+  Rendered devise/shared/_links.html.erb (Duration: 1.9ms | Allocations: 479)
+  Rendered devise/registrations/new.html.erb within layouts/application (Duration: 21.9ms | Allocations: 2393)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 32.0ms | Allocations: 5611)
+Completed 200 OK in 53ms (Views: 47.3ms | ActiveRecord: 0.0ms | Allocations: 7256)
+
+
+Started GET "/users/sign_up" for ::1 at 2021-04-18 11:08:33 +0530
+Processing by Devise::RegistrationsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/registrations/new.html.erb within layouts/application
+  Rendered devise/shared/_error_messages.html.erb (Duration: 2.2ms | Allocations: 214)
+  Rendered devise/shared/_links.html.erb (Duration: 4.8ms | Allocations: 479)
+  Rendered devise/registrations/new.html.erb within layouts/application (Duration: 23.2ms | Allocations: 2404)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 36.3ms | Allocations: 5623)
+Completed 200 OK in 63ms (Views: 59.0ms | ActiveRecord: 0.0ms | Allocations: 7273)
+
+
+Started POST "/users" for ::1 at 2021-04-18 11:08:49 +0530
+Processing by Devise::RegistrationsController#create as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "user"=>{"name"=>"sharath", "email"=>"sharath@gl.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "commit"=>"Sign up"}
+[31mUnpermitted parameter: :name[0m
+  [1m[36mTRANSACTION (0.8ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists? (0.8ms)[0m  [1m[34mSELECT 1 AS one FROM `users` WHERE `users`.`email` = BINARY 'sharath@gl.com' LIMIT 1[0m
+  [1m[36mUser Create (0.9ms)[0m  [1m[32mINSERT INTO `users` (`email`, `encrypted_password`, `created_at`, `updated_at`) VALUES ('sharath@gl.com', '$2a$12$j1e9H6iZ44zZh7retqQ.Xek0LF/x2VSJ1OvxRdkD9SToPa/zxsyey', '2021-04-18 05:38:49.628902', '2021-04-18 05:38:49.628902')[0m
+  [1m[36mTRANSACTION (2.7ms)[0m  [1m[35mCOMMIT[0m
+Redirected to http://localhost:3000/
+Completed 302 Found in 315ms (ActiveRecord: 5.1ms | Allocations: 10709)
+
+
+Started GET "/" for ::1 at 2021-04-18 11:08:49 +0530
+Processing by ArticlesController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering articles/index.html.erb within layouts/application
+  [1m[36mArticle Load (0.7ms)[0m  [1m[34mSELECT `articles`.* FROM `articles`[0m
+  ↳ app/views/articles/index.html.erb:15
+  Rendered articles/index.html.erb within layouts/application (Duration: 2.1ms | Allocations: 1031)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 5.0ms | Allocations: 4061)
+Completed 200 OK in 8ms (Views: 5.7ms | ActiveRecord: 0.7ms | Allocations: 5290)
+
+
+Started GET "/" for ::1 at 2021-04-18 11:20:50 +0530
+Processing by ArticlesController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering articles/index.html.erb within layouts/application
+  [1m[36mArticle Load (3.2ms)[0m  [1m[34mSELECT `articles`.* FROM `articles`[0m
+  ↳ app/views/articles/index.html.erb:15
+  Rendered articles/index.html.erb within layouts/application (Duration: 10.6ms | Allocations: 1296)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 19.9ms | Allocations: 4493)
+Completed 200 OK in 27ms (Views: 24.5ms | ActiveRecord: 5.7ms | Allocations: 5694)
+
+
+Started GET "/users/" for ::1 at 2021-04-18 11:21:00 +0530
+  
+ActionController::RoutingError (No route matches [GET] "/users"):
+  
+Started GET "/users/sign_up" for ::1 at 2021-04-18 11:25:04 +0530
+Processing by Devise::RegistrationsController#new as HTML
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 ORDER BY `users`.`id` ASC LIMIT 1[0m
+Redirected to http://localhost:3000/
+Filter chain halted as :require_no_authentication rendered or redirected
+Completed 302 Found in 19ms (ActiveRecord: 3.1ms | Allocations: 8729)
+
+
+Started GET "/" for ::1 at 2021-04-18 11:25:04 +0530
+Processing by ArticlesController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering articles/index.html.erb within layouts/application
+  [1m[36mArticle Load (0.8ms)[0m  [1m[34mSELECT `articles`.* FROM `articles`[0m
+  ↳ app/views/articles/index.html.erb:15
+  Rendered articles/index.html.erb within layouts/application (Duration: 2.5ms | Allocations: 761)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 6.8ms | Allocations: 3791)
+Completed 200 OK in 8ms (Views: 6.6ms | ActiveRecord: 0.8ms | Allocations: 4524)
+
+
+Started GET "/users/sign_up" for ::1 at 2021-04-18 11:25:13 +0530
+Processing by Devise::RegistrationsController#new as HTML
+  [1m[36mUser Load (3.6ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 ORDER BY `users`.`id` ASC LIMIT 1[0m
+Redirected to http://localhost:3000/
+Filter chain halted as :require_no_authentication rendered or redirected
+Completed 302 Found in 14ms (ActiveRecord: 3.6ms | Allocations: 1431)
+
+
+Started GET "/" for ::1 at 2021-04-18 11:25:13 +0530
+Processing by ArticlesController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering articles/index.html.erb within layouts/application
+  [1m[36mArticle Load (0.9ms)[0m  [1m[34mSELECT `articles`.* FROM `articles`[0m
+  ↳ app/views/articles/index.html.erb:15
+  Rendered articles/index.html.erb within layouts/application (Duration: 4.5ms | Allocations: 754)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 11.8ms | Allocations: 3772)
+Completed 200 OK in 13ms (Views: 11.3ms | ActiveRecord: 0.9ms | Allocations: 4181)
+
+
+Started GET "/" for ::1 at 2021-04-18 11:25:14 +0530
+Processing by ArticlesController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering articles/index.html.erb within layouts/application
+  [1m[36mArticle Load (1.3ms)[0m  [1m[34mSELECT `articles`.* FROM `articles`[0m
+  ↳ app/views/articles/index.html.erb:15
+  Rendered articles/index.html.erb within layouts/application (Duration: 3.7ms | Allocations: 755)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 15.2ms | Allocations: 3773)
+Completed 200 OK in 18ms (Views: 15.3ms | ActiveRecord: 1.3ms | Allocations: 4174)
+
+
+Started GET "/" for ::1 at 2021-04-18 11:25:42 +0530
+Processing by ArticlesController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering articles/index.html.erb within layouts/application
+  [1m[36mArticle Load (5.7ms)[0m  [1m[34mSELECT `articles`.* FROM `articles`[0m
+  ↳ app/views/articles/index.html.erb:15
+  Rendered articles/index.html.erb within layouts/application (Duration: 14.9ms | Allocations: 755)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 56.2ms | Allocations: 3773)
+Completed 200 OK in 64ms (Views: 53.9ms | ActiveRecord: 5.7ms | Allocations: 4175)
+
+
+Started GET "/users/sign_up" for ::1 at 2021-04-18 11:25:46 +0530
+Processing by Devise::RegistrationsController#new as HTML
+  [1m[36mUser Load (1.4ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  Rendering layout layouts/application.html.erb
+  Rendering devise/registrations/new.html.erb within layouts/application
+  Rendered devise/shared/_error_messages.html.erb (Duration: 0.9ms | Allocations: 213)
+  Rendered devise/shared/_links.html.erb (Duration: 2.1ms | Allocations: 487)
+  Rendered devise/registrations/new.html.erb within layouts/application (Duration: 9.7ms | Allocations: 2462)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 14.7ms | Allocations: 5518)
+Completed 200 OK in 22ms (Views: 17.5ms | ActiveRecord: 1.4ms | Allocations: 8069)
+
+
+Started POST "/users" for ::1 at 2021-04-18 11:25:59 +0530
+Processing by Devise::RegistrationsController#create as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "user"=>{"name"=>"sharath", "email"=>"sharath@gl.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "commit"=>"Sign up"}
+[31mUnpermitted parameter: :password_confirmation[0m
+  [1m[36mTRANSACTION (0.7ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists? (0.7ms)[0m  [1m[34mSELECT 1 AS one FROM `users` WHERE `users`.`email` = BINARY 'sharath@gl.com' LIMIT 1[0m
+  [1m[36mUser Create (0.7ms)[0m  [1m[32mINSERT INTO `users` (`name`, `email`, `encrypted_password`, `created_at`, `updated_at`) VALUES ('sharath', 'sharath@gl.com', '$2a$12$Da9/1eJkLWifJsSejObSvuh/G6X8zCylJpbFBXPmPNrN/fz07qEky', '2021-04-18 05:56:00.136986', '2021-04-18 05:56:00.136986')[0m
+  [1m[36mTRANSACTION (2.5ms)[0m  [1m[35mCOMMIT[0m
+Redirected to http://localhost:3000/
+Completed 302 Found in 307ms (ActiveRecord: 4.7ms | Allocations: 6841)
+
+
+Started GET "/" for ::1 at 2021-04-18 11:26:00 +0530
+Processing by ArticlesController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering articles/index.html.erb within layouts/application
+  [1m[36mArticle Load (0.7ms)[0m  [1m[34mSELECT `articles`.* FROM `articles`[0m
+  ↳ app/views/articles/index.html.erb:15
+  Rendered articles/index.html.erb within layouts/application (Duration: 1.5ms | Allocations: 762)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 4.7ms | Allocations: 3783)
+Completed 200 OK in 6ms (Views: 4.4ms | ActiveRecord: 0.7ms | Allocations: 4194)
+
+
+Started GET "/" for ::1 at 2021-04-19 13:48:43 +0530
+  [1m[35m (1.3ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+Processing by ArticlesController#index as HTML
+Completed 401 Unauthorized in 10ms (ActiveRecord: 0.0ms | Allocations: 1664)
+
+
+Started GET "/users/sign_in" for ::1 at 2021-04-19 13:48:43 +0530
+Processing by Devise::SessionsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (Duration: 14.3ms | Allocations: 613)
+  Rendered devise/sessions/new.html.erb within layouts/application (Duration: 21.8ms | Allocations: 2996)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 47.6ms | Allocations: 8352)
+Completed 200 OK in 94ms (Views: 56.5ms | ActiveRecord: 5.3ms | Allocations: 18279)
+
+
+Started POST "/users/sign_in" for ::1 at 2021-04-19 13:48:56 +0530
+Processing by Devise::SessionsController#create as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "user"=>{"email"=>"sharath@gl.com", "password"=>"[FILTERED]", "remember_me"=>"1"}, "commit"=>"Log in"}
+  [1m[36mUser Load (2.9ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`email` = 'sharath@gl.com' ORDER BY `users`.`id` ASC LIMIT 1[0m
+  [1m[36mTRANSACTION (1.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Update (2.3ms)[0m  [1m[33mUPDATE `users` SET `users`.`remember_created_at` = '2021-04-19 08:18:56', `users`.`updated_at` = '2021-04-19 08:18:56.961991' WHERE `users`.`id` = 2[0m
+  [1m[36mTRANSACTION (4.9ms)[0m  [1m[35mCOMMIT[0m
+Redirected to http://localhost:3000/
+Completed 302 Found in 440ms (ActiveRecord: 11.2ms | Allocations: 8940)
+
+
+Started GET "/" for ::1 at 2021-04-19 13:48:56 +0530
+Processing by ArticlesController#index as HTML
+  [1m[36mUser Load (1.5ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 2 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  Rendering layout layouts/application.html.erb
+  Rendering articles/index.html.erb within layouts/application
+  [1m[36mArticle Load (1.7ms)[0m  [1m[34mSELECT `articles`.* FROM `articles`[0m
+  ↳ app/views/articles/index.html.erb:15
+  Rendered articles/index.html.erb within layouts/application (Duration: 4.4ms | Allocations: 1012)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 13.0ms | Allocations: 4040)
+Completed 200 OK in 26ms (Views: 14.8ms | ActiveRecord: 3.1ms | Allocations: 6305)
+
+
+Started GET "/" for ::1 at 2021-04-19 13:55:03 +0530
+Processing by ArticlesController#index as HTML
+  [1m[36mUser Load (1.4ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 2 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  Rendering layout layouts/application.html.erb
+  Rendering articles/index.html.erb within layouts/application
+  [1m[36mArticle Load (1.2ms)[0m  [1m[34mSELECT `articles`.* FROM `articles`[0m
+  ↳ app/views/articles/index.html.erb:15
+  Rendered articles/index.html.erb within layouts/application (Duration: 3.4ms | Allocations: 996)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 22.5ms | Allocations: 8378)
+Completed 500 Internal Server Error in 49ms (ActiveRecord: 3.9ms | Allocations: 17651)
+
+
+  
+ActionView::Template::Error (undefined local variable or method `sign_in_path' for #<ActionView::Base:0x0000000000b270>
+Did you mean?  signed_in?):
+    19:         <h5><%= current_user.email %></h5>
+    20:     <%end%>
+    21:     <%=
+    22:         link_to_if(current_user.nil?, "Login", sign_in_path, class: 'btn btn-primary m-5') do
+    23:             link_to('Sign out',  destroy_user_session_path, :method => 'delete', class: 'btn btn-danger m-5')
+    24:         end
+    25:     %>
+  
+app/views/layouts/application.html.erb:22
+Started GET "/" for ::1 at 2021-04-19 13:59:14 +0530
+Processing by ArticlesController#index as HTML
+  [1m[36mUser Load (1.7ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 2 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  Rendering layout layouts/application.html.erb
+  Rendering articles/index.html.erb within layouts/application
+  [1m[36mArticle Load (1.1ms)[0m  [1m[34mSELECT `articles`.* FROM `articles`[0m
+  ↳ app/views/articles/index.html.erb:15
+  Rendered articles/index.html.erb within layouts/application (Duration: 3.2ms | Allocations: 1015)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 12.1ms | Allocations: 4514)
+Completed 200 OK in 22ms (Views: 13.4ms | ActiveRecord: 2.8ms | Allocations: 7114)
+
+
+Started GET "/" for ::1 at 2021-04-19 14:00:16 +0530
+Processing by ArticlesController#index as HTML
+  [1m[36mUser Load (3.2ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 2 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  Rendering layout layouts/application.html.erb
+  Rendering articles/index.html.erb within layouts/application
+  [1m[36mArticle Load (3.1ms)[0m  [1m[34mSELECT `articles`.* FROM `articles`[0m
+  ↳ app/views/articles/index.html.erb:15
+  Rendered articles/index.html.erb within layouts/application (Duration: 7.3ms | Allocations: 989)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 26.3ms | Allocations: 4343)
+Completed 200 OK in 41ms (Views: 27.1ms | ActiveRecord: 6.3ms | Allocations: 6672)
+
+
+Started GET "/" for ::1 at 2021-04-19 14:00:29 +0530
+Processing by ArticlesController#index as HTML
+  [1m[36mUser Load (3.2ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 2 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  Rendering layout layouts/application.html.erb
+  Rendering articles/index.html.erb within layouts/application
+  [1m[36mArticle Load (2.0ms)[0m  [1m[34mSELECT `articles`.* FROM `articles`[0m
+  ↳ app/views/articles/index.html.erb:15
+  Rendered articles/index.html.erb within layouts/application (Duration: 10.2ms | Allocations: 992)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 20.9ms | Allocations: 4352)
+Completed 200 OK in 36ms (Views: 23.0ms | ActiveRecord: 5.3ms | Allocations: 6710)
+
+
+Started GET "/" for ::1 at 2021-04-19 14:00:42 +0530
+Processing by ArticlesController#index as HTML
+  [1m[36mUser Load (3.7ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 2 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  Rendering layout layouts/application.html.erb
+  Rendering articles/index.html.erb within layouts/application
+  [1m[36mArticle Load (10.7ms)[0m  [1m[34mSELECT `articles`.* FROM `articles`[0m
+  ↳ app/views/articles/index.html.erb:15
+  Rendered articles/index.html.erb within layouts/application (Duration: 16.1ms | Allocations: 990)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 45.3ms | Allocations: 4340)
+Completed 200 OK in 67ms (Views: 43.6ms | ActiveRecord: 14.4ms | Allocations: 6670)
+
+
+Started GET "/" for ::1 at 2021-04-19 14:07:41 +0530
+Processing by ArticlesController#index as HTML
+  [1m[36mUser Load (1.4ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 2 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  Rendering layout layouts/application.html.erb
+  Rendering articles/index.html.erb within layouts/application
+  [1m[36mArticle Load (1.3ms)[0m  [1m[34mSELECT `articles`.* FROM `articles`[0m
+  ↳ app/views/articles/index.html.erb:15
+  Rendered articles/index.html.erb within layouts/application (Duration: 3.8ms | Allocations: 989)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 21.8ms | Allocations: 4407)
+Completed 200 OK in 32ms (Views: 22.4ms | ActiveRecord: 3.9ms | Allocations: 7009)
+
+
+Started GET "/" for ::1 at 2021-04-19 14:08:46 +0530
+Processing by ArticlesController#index as HTML
+  [1m[36mUser Load (2.0ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 2 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  Rendering layout layouts/application.html.erb
+  Rendering articles/index.html.erb within layouts/application
+  [1m[36mArticle Load (2.1ms)[0m  [1m[34mSELECT `articles`.* FROM `articles`[0m
+  ↳ app/views/articles/index.html.erb:15
+  Rendered articles/index.html.erb within layouts/application (Duration: 6.1ms | Allocations: 989)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 14.8ms | Allocations: 4339)
+Completed 200 OK in 36ms (Views: 19.4ms | ActiveRecord: 4.1ms | Allocations: 6668)
+
+
+Started GET "/" for ::1 at 2021-04-19 14:12:44 +0530
+Processing by ArticlesController#index as HTML
+  [1m[36mUser Load (2.1ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 2 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  Rendering layout layouts/application.html.erb
+  Rendering articles/index.html.erb within layouts/application
+  [1m[36mArticle Load (5.0ms)[0m  [1m[34mSELECT `articles`.* FROM `articles`[0m
+  ↳ app/views/articles/index.html.erb:15
+  Rendered articles/index.html.erb within layouts/application (Duration: 11.4ms | Allocations: 994)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 25.8ms | Allocations: 4364)
+Completed 200 OK in 48ms (Views: 26.1ms | ActiveRecord: 7.2ms | Allocations: 6723)
+
+
+Started GET "/" for ::1 at 2021-04-19 14:13:37 +0530
+Processing by ArticlesController#index as HTML
+  [1m[36mUser Load (13.6ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 2 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  Rendering layout layouts/application.html.erb
+  Rendering articles/index.html.erb within layouts/application
+  [1m[36mArticle Load (1.8ms)[0m  [1m[34mSELECT `articles`.* FROM `articles`[0m
+  ↳ app/views/articles/index.html.erb:15
+  Rendered articles/index.html.erb within layouts/application (Duration: 3.6ms | Allocations: 752)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 12.0ms | Allocations: 3833)
+Completed 200 OK in 32ms (Views: 11.3ms | ActiveRecord: 15.5ms | Allocations: 5364)
+
+
+Started GET "/" for ::1 at 2021-04-19 14:16:24 +0530
+Processing by ArticlesController#index as HTML
+  [1m[36mUser Load (2.2ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 2 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  Rendering layout layouts/application.html.erb
+  Rendering articles/index.html.erb within layouts/application
+  [1m[36mArticle Load (2.1ms)[0m  [1m[34mSELECT `articles`.* FROM `articles`[0m
+  ↳ app/views/articles/index.html.erb:15
+  Rendered articles/index.html.erb within layouts/application (Duration: 4.9ms | Allocations: 990)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 31.7ms | Allocations: 4355)
+Completed 200 OK in 42ms (Views: 33.1ms | ActiveRecord: 4.2ms | Allocations: 6693)
+
+
+Started GET "/" for ::1 at 2021-04-19 14:18:23 +0530
+Processing by ArticlesController#index as HTML
+  [1m[36mUser Load (2.5ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 2 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  Rendering layout layouts/application.html.erb
+  Rendering articles/index.html.erb within layouts/application
+  [1m[36mArticle Load (1.6ms)[0m  [1m[34mSELECT `articles`.* FROM `articles`[0m
+  ↳ app/views/articles/index.html.erb:15
+  Rendered articles/index.html.erb within layouts/application (Duration: 4.9ms | Allocations: 992)
+  Rendered layout layouts/application.html.erb (Duration: 47.8ms | Allocations: 14036)
+Completed 500 Internal Server Error in 82ms (ActiveRecord: 4.2ms | Allocations: 16351)
+
+
+  
+ActionView::Template::Error (The asset "style.css" is not present in the asset pipeline.
+):
+     7:     <%= csp_meta_tag %>
+     8: 
+     9:     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    10:     <%= stylesheet_link_tag 'style.css' %>
+    11:     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+    12:   </head>
+    13: 
+  
+app/views/layouts/application.html.erb:10
+Started GET "/" for ::1 at 2021-04-19 14:18:35 +0530
+Processing by ArticlesController#index as HTML
+  [1m[36mUser Load (1.5ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 2 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  Rendering layout layouts/application.html.erb
+  Rendering articles/index.html.erb within layouts/application
+  [1m[36mArticle Load (1.1ms)[0m  [1m[34mSELECT `articles`.* FROM `articles`[0m
+  ↳ app/views/articles/index.html.erb:15
+  Rendered articles/index.html.erb within layouts/application (Duration: 3.3ms | Allocations: 989)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 10.3ms | Allocations: 4390)
+Completed 200 OK in 20ms (Views: 12.3ms | ActiveRecord: 2.7ms | Allocations: 6727)
+
+
+Started GET "/" for ::1 at 2021-04-19 14:18:52 +0530
+Processing by ArticlesController#index as HTML
+  [1m[36mUser Load (2.0ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 2 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  Rendering layout layouts/application.html.erb
+  Rendering articles/index.html.erb within layouts/application
+  [1m[36mArticle Load (1.4ms)[0m  [1m[34mSELECT `articles`.* FROM `articles`[0m
+  ↳ app/views/articles/index.html.erb:15
+  Rendered articles/index.html.erb within layouts/application (Duration: 3.5ms | Allocations: 989)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 12.2ms | Allocations: 4360)
+Completed 200 OK in 22ms (Views: 13.7ms | ActiveRecord: 3.4ms | Allocations: 6689)
+
+
+Started GET "/" for ::1 at 2021-04-19 14:19:10 +0530
+Processing by ArticlesController#index as HTML
+  [1m[36mUser Load (1.7ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 2 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  Rendering layout layouts/application.html.erb
+  Rendering articles/index.html.erb within layouts/application
+  [1m[36mArticle Load (1.3ms)[0m  [1m[34mSELECT `articles`.* FROM `articles`[0m
+  ↳ app/views/articles/index.html.erb:15
+  Rendered articles/index.html.erb within layouts/application (Duration: 3.0ms | Allocations: 752)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 38.6ms | Allocations: 9345)
+Completed 200 OK in 45ms (Views: 38.0ms | ActiveRecord: 3.0ms | Allocations: 10874)
+
+
+Started GET "/" for ::1 at 2021-04-19 14:19:17 +0530
+Processing by ArticlesController#index as HTML
+  [1m[36mUser Load (5.0ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 2 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  Rendering layout layouts/application.html.erb
+  Rendering articles/index.html.erb within layouts/application
+  [1m[36mArticle Load (5.6ms)[0m  [1m[34mSELECT `articles`.* FROM `articles`[0m
+  ↳ app/views/articles/index.html.erb:15
+  Rendered articles/index.html.erb within layouts/application (Duration: 9.3ms | Allocations: 750)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 63.7ms | Allocations: 8856)
+Completed 200 OK in 81ms (Views: 59.8ms | ActiveRecord: 10.5ms | Allocations: 10384)
+
+
+Started DELETE "/users/sign_out" for ::1 at 2021-04-19 14:19:53 +0530
+Processing by Devise::SessionsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]"}
+  [1m[36mUser Load (2.2ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 2 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  [1m[36mTRANSACTION (1.5ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Update (2.1ms)[0m  [1m[33mUPDATE `users` SET `users`.`remember_created_at` = NULL, `users`.`updated_at` = '2021-04-19 08:49:53.518597' WHERE `users`.`id` = 2[0m
+  [1m[36mTRANSACTION (7.0ms)[0m  [1m[35mCOMMIT[0m
+Redirected to http://localhost:3000/
+Completed 302 Found in 35ms (ActiveRecord: 12.8ms | Allocations: 5361)
+
+
+Started GET "/" for ::1 at 2021-04-19 14:19:53 +0530
+Processing by ArticlesController#index as HTML
+Completed 401 Unauthorized in 2ms (ActiveRecord: 0.0ms | Allocations: 243)
+
+
+Started GET "/users/sign_in" for ::1 at 2021-04-19 14:19:53 +0530
+Processing by Devise::SessionsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (Duration: 1.7ms | Allocations: 551)
+  Rendered devise/sessions/new.html.erb within layouts/application (Duration: 7.9ms | Allocations: 1887)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 18.1ms | Allocations: 5025)
+Completed 200 OK in 27ms (Views: 25.1ms | ActiveRecord: 0.0ms | Allocations: 6580)
+
+
+Started GET "/users/sign_in" for ::1 at 2021-04-19 14:19:59 +0530
+Processing by Devise::SessionsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (Duration: 0.4ms | Allocations: 150)
+  Rendered devise/sessions/new.html.erb within layouts/application (Duration: 11.1ms | Allocations: 1005)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 16.6ms | Allocations: 4135)
+Completed 200 OK in 19ms (Views: 17.4ms | ActiveRecord: 0.0ms | Allocations: 4746)
+
+
+Started POST "/users/sign_in" for ::1 at 2021-04-19 14:20:12 +0530
+Processing by Devise::SessionsController#create as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "user"=>{"email"=>"sharath@gl.com", "password"=>"[FILTERED]", "remember_me"=>"1"}, "commit"=>"Log in"}
+  [1m[36mUser Load (13.5ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`email` = 'sharath@gl.com' ORDER BY `users`.`id` ASC LIMIT 1[0m
+  [1m[36mTRANSACTION (1.5ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Update (2.2ms)[0m  [1m[33mUPDATE `users` SET `users`.`remember_created_at` = '2021-04-19 08:50:12', `users`.`updated_at` = '2021-04-19 08:50:12.499926' WHERE `users`.`id` = 2[0m
+  [1m[36mTRANSACTION (2.8ms)[0m  [1m[35mCOMMIT[0m
+Redirected to http://localhost:3000/
+Completed 302 Found in 371ms (ActiveRecord: 19.9ms | Allocations: 6886)
+
+
+Started GET "/" for ::1 at 2021-04-19 14:20:12 +0530
+Processing by ArticlesController#index as HTML
+  [1m[36mUser Load (3.1ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 2 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  Rendering layout layouts/application.html.erb
+  Rendering articles/index.html.erb within layouts/application
+  [1m[36mArticle Load (1.3ms)[0m  [1m[34mSELECT `articles`.* FROM `articles`[0m
+  ↳ app/views/articles/index.html.erb:15
+  Rendered articles/index.html.erb within layouts/application (Duration: 2.7ms | Allocations: 757)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 11.2ms | Allocations: 3849)
+Completed 200 OK in 23ms (Views: 11.0ms | ActiveRecord: 4.4ms | Allocations: 5383)
+
+
+Started GET "/questions" for ::1 at 2021-04-19 14:51:32 +0530
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+  
+ActiveRecord::PendingMigrationError (
+
+Migrations are pending. To resolve this issue, run:
+
+        bin/rails db:migrate RAILS_ENV=development
+
+You have 1 pending migration:
+
+20210419091826_create_questions.rb
+
+
+):
+  
+activerecord (6.1.3.1) lib/active_record/migration.rb:625:in `check_pending!'
+activerecord (6.1.3.1) lib/active_record/migration.rb:590:in `block (2 levels) in call'
+activesupport (6.1.3.1) lib/active_support/evented_file_update_checker.rb:59:in `execute'
+activerecord (6.1.3.1) lib/active_record/migration.rb:595:in `block in call'
+activerecord (6.1.3.1) lib/active_record/migration.rb:587:in `synchronize'
+activerecord (6.1.3.1) lib/active_record/migration.rb:587:in `call'
+actionpack (6.1.3.1) lib/action_dispatch/middleware/callbacks.rb:27:in `block in call'
+activesupport (6.1.3.1) lib/active_support/callbacks.rb:98:in `run_callbacks'
+actionpack (6.1.3.1) lib/action_dispatch/middleware/callbacks.rb:26:in `call'
+actionpack (6.1.3.1) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (6.1.3.1) lib/action_dispatch/middleware/actionable_exceptions.rb:18:in `call'
+actionpack (6.1.3.1) lib/action_dispatch/middleware/debug_exceptions.rb:29:in `call'
+web-console (4.1.0) lib/web_console/middleware.rb:132:in `call_app'
+web-console (4.1.0) lib/web_console/middleware.rb:28:in `block in call'
+web-console (4.1.0) lib/web_console/middleware.rb:17:in `catch'
+web-console (4.1.0) lib/web_console/middleware.rb:17:in `call'
+actionpack (6.1.3.1) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (6.1.3.1) lib/rails/rack/logger.rb:37:in `call_app'
+railties (6.1.3.1) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (6.1.3.1) lib/active_support/tagged_logging.rb:99:in `block in tagged'
+activesupport (6.1.3.1) lib/active_support/tagged_logging.rb:37:in `tagged'
+activesupport (6.1.3.1) lib/active_support/tagged_logging.rb:99:in `tagged'
+railties (6.1.3.1) lib/rails/rack/logger.rb:26:in `call'
+sprockets-rails (3.2.2) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (6.1.3.1) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (6.1.3.1) lib/action_dispatch/middleware/request_id.rb:26:in `call'
+rack (2.2.3) lib/rack/method_override.rb:24:in `call'
+rack (2.2.3) lib/rack/runtime.rb:22:in `call'
+activesupport (6.1.3.1) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (6.1.3.1) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (6.1.3.1) lib/action_dispatch/middleware/static.rb:24:in `call'
+rack (2.2.3) lib/rack/sendfile.rb:110:in `call'
+actionpack (6.1.3.1) lib/action_dispatch/middleware/host_authorization.rb:98:in `call'
+rack-mini-profiler (2.3.1) lib/mini_profiler/profiler.rb:373:in `call'
+webpacker (5.2.1) lib/webpacker/dev_server_proxy.rb:25:in `perform_request'
+rack-proxy (0.6.5) lib/rack/proxy.rb:57:in `call'
+railties (6.1.3.1) lib/rails/engine.rb:539:in `call'
+puma (5.2.2) lib/puma/configuration.rb:248:in `call'
+puma (5.2.2) lib/puma/request.rb:76:in `block in handle_request'
+puma (5.2.2) lib/puma/thread_pool.rb:337:in `with_force_shutdown'
+puma (5.2.2) lib/puma/request.rb:75:in `handle_request'
+puma (5.2.2) lib/puma/server.rb:431:in `process_client'
+puma (5.2.2) lib/puma/thread_pool.rb:145:in `block in spawn_thread'
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT GET_LOCK('4733270473093800225', 0)[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+Migrating to CreateQuestions (20210419091826)
+  [1m[35m (14.4ms)[0m  [1m[35mCREATE TABLE `questions` (`id` bigint NOT NULL AUTO_INCREMENT PRIMARY KEY, `title` varchar(255), `description` text, `level` varchar(255), `time_taken` int, `created_at` datetime(6) NOT NULL, `updated_at` datetime(6) NOT NULL)[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.3ms)[0m  [1m[32mINSERT INTO `schema_migrations` (`version`) VALUES ('20210419091826')[0m
+  [1m[36mTRANSACTION (1.6ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.3ms)[0m  [1m[34mSELECT `ar_internal_metadata`.* FROM `ar_internal_metadata` WHERE `ar_internal_metadata`.`key` = 'environment' LIMIT 1[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT RELEASE_LOCK('4733270473093800225')[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+Started GET "/questions" for ::1 at 2021-04-19 14:51:48 +0530
+  [1m[35m (3.3ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+Processing by QuestionsController#index as HTML
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 2 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  Rendering layout layouts/application.html.erb
+  Rendering questions/index.html.erb within layouts/application
+  [1m[36mQuestion Load (0.8ms)[0m  [1m[34mSELECT `questions`.* FROM `questions`[0m
+  ↳ app/views/questions/index.html.erb:17
+  Rendered questions/index.html.erb within layouts/application (Duration: 2.2ms | Allocations: 1065)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 47.6ms | Allocations: 19734)
+Completed 200 OK in 82ms (Views: 48.4ms | ActiveRecord: 4.3ms | Allocations: 31470)
+
+
+Started GET "/questions/new" for ::1 at 2021-04-19 14:51:52 +0530
+Processing by QuestionsController#new as HTML
+  [1m[36mUser Load (2.2ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 2 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  Rendering layout layouts/application.html.erb
+  Rendering questions/new.html.erb within layouts/application
+  Rendered questions/_form.html.erb (Duration: 17.4ms | Allocations: 5638)
+  Rendered questions/new.html.erb within layouts/application (Duration: 19.0ms | Allocations: 5983)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 25.9ms | Allocations: 9034)
+Completed 200 OK in 65ms (Views: 26.9ms | ActiveRecord: 8.0ms | Allocations: 14675)
+
+
+Started POST "/questions" for ::1 at 2021-04-19 14:53:25 +0530
+Processing by QuestionsController#create as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "question"=>{"title"=>"Python Program to Calculate the Area of a Triangle", "description"=>"to understand this example, you should have the knowledge of the following", "level"=>"easy", "time_taken"=>"2"}, "commit"=>"Create Question"}
+  [1m[36mUser Load (1.8ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 2 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  [1m[36mTRANSACTION (2.5ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/questions_controller.rb:27:in `block in create'
+  [1m[36mQuestion Create (7.7ms)[0m  [1m[32mINSERT INTO `questions` (`title`, `description`, `level`, `time_taken`, `created_at`, `updated_at`) VALUES ('Python Program to Calculate the Area of a Triangle', 'to understand this example, you should have the knowledge of the following', 'easy', 2, '2021-04-19 09:23:25.421498', '2021-04-19 09:23:25.421498')[0m
+  ↳ app/controllers/questions_controller.rb:27:in `block in create'
+  [1m[36mTRANSACTION (3.8ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/questions_controller.rb:27:in `block in create'
+Redirected to http://localhost:3000/questions/1
+Completed 302 Found in 56ms (ActiveRecord: 15.7ms | Allocations: 3945)
+
+
+Started GET "/questions/1" for ::1 at 2021-04-19 14:53:25 +0530
+Processing by QuestionsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (1.2ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 2 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  [1m[36mQuestion Load (1.8ms)[0m  [1m[34mSELECT `questions`.* FROM `questions` WHERE `questions`.`id` = 1 LIMIT 1[0m
+  ↳ app/controllers/questions_controller.rb:62:in `set_question'
+  Rendering layout layouts/application.html.erb
+  Rendering questions/show.html.erb within layouts/application
+  Rendered questions/show.html.erb within layouts/application (Duration: 0.9ms | Allocations: 318)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 25.4ms | Allocations: 3464)
+Completed 200 OK in 49ms (Views: 27.6ms | ActiveRecord: 3.1ms | Allocations: 5835)
+
+
+Started GET "/questions" for ::1 at 2021-04-19 14:53:30 +0530
+Processing by QuestionsController#index as HTML
+  [1m[36mUser Load (7.4ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 2 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  Rendering layout layouts/application.html.erb
+  Rendering questions/index.html.erb within layouts/application
+  [1m[36mQuestion Load (3.6ms)[0m  [1m[34mSELECT `questions`.* FROM `questions`[0m
+  ↳ app/views/questions/index.html.erb:17
+  Rendered questions/index.html.erb within layouts/application (Duration: 22.5ms | Allocations: 865)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 56.8ms | Allocations: 4624)
+Completed 200 OK in 83ms (Views: 59.3ms | ActiveRecord: 10.9ms | Allocations: 6175)
+
+
+Started GET "/questions/new" for ::1 at 2021-04-19 14:53:36 +0530
+Processing by QuestionsController#new as HTML
+  [1m[36mUser Load (3.7ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 2 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  Rendering layout layouts/application.html.erb
+  Rendering questions/new.html.erb within layouts/application
+  Rendered questions/_form.html.erb (Duration: 7.6ms | Allocations: 1044)
+  Rendered questions/new.html.erb within layouts/application (Duration: 8.3ms | Allocations: 1151)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 20.6ms | Allocations: 4303)
+Completed 200 OK in 32ms (Views: 22.0ms | ActiveRecord: 3.7ms | Allocations: 5855)
+
+
+Started POST "/questions" for ::1 at 2021-04-19 14:54:07 +0530
+Processing by QuestionsController#create as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "question"=>{"title"=>"Program to Swap Two Variables", "description"=>"In this example, you will learn to swap two variables by using a temporary variable and, without using temporary variable.", "level"=>"easy", "time_taken"=>"2"}, "commit"=>"Create Question"}
+  [1m[36mUser Load (1.5ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 2 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  [1m[36mTRANSACTION (1.4ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/questions_controller.rb:27:in `block in create'
+  [1m[36mQuestion Create (1.4ms)[0m  [1m[32mINSERT INTO `questions` (`title`, `description`, `level`, `time_taken`, `created_at`, `updated_at`) VALUES ('Program to Swap Two Variables', 'In this example, you will learn to swap two variables by using a temporary variable and, without using temporary variable.', 'easy', 2, '2021-04-19 09:24:07.656299', '2021-04-19 09:24:07.656299')[0m
+  ↳ app/controllers/questions_controller.rb:27:in `block in create'
+  [1m[36mTRANSACTION (3.6ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/questions_controller.rb:27:in `block in create'
+Redirected to http://localhost:3000/questions/2
+Completed 302 Found in 18ms (ActiveRecord: 7.9ms | Allocations: 3703)
+
+
+Started GET "/questions/2" for ::1 at 2021-04-19 14:54:07 +0530
+Processing by QuestionsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mUser Load (1.6ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 2 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  [1m[36mQuestion Load (1.8ms)[0m  [1m[34mSELECT `questions`.* FROM `questions` WHERE `questions`.`id` = 2 LIMIT 1[0m
+  ↳ app/controllers/questions_controller.rb:62:in `set_question'
+  Rendering layout layouts/application.html.erb
+  Rendering questions/show.html.erb within layouts/application
+  Rendered questions/show.html.erb within layouts/application (Duration: 0.4ms | Allocations: 109)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 5.5ms | Allocations: 3249)
+Completed 200 OK in 15ms (Views: 6.2ms | ActiveRecord: 3.4ms | Allocations: 5362)
+
+
+Started GET "/questions" for ::1 at 2021-04-19 14:54:09 +0530
+Processing by QuestionsController#index as HTML
+  [1m[36mUser Load (2.8ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 2 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  Rendering layout layouts/application.html.erb
+  Rendering questions/index.html.erb within layouts/application
+  [1m[36mQuestion Load (6.1ms)[0m  [1m[34mSELECT `questions`.* FROM `questions`[0m
+  ↳ app/views/questions/index.html.erb:17
+  Rendered questions/index.html.erb within layouts/application (Duration: 22.0ms | Allocations: 970)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 39.8ms | Allocations: 4726)
+Completed 200 OK in 52ms (Views: 35.6ms | ActiveRecord: 8.9ms | Allocations: 6258)
+
+
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT GET_LOCK('4733270473093800225', 0)[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+Migrating to CreateAnswers (20210419093923)
+  [1m[35m (18.4ms)[0m  [1m[35mCREATE TABLE `answers` (`id` bigint NOT NULL AUTO_INCREMENT PRIMARY KEY, `ans_code` text, `language` varchar(255), `time_taken` int, `remark` varchar(255), `question_id` bigint, `user_id` bigint, `created_at` datetime(6) NOT NULL, `updated_at` datetime(6) NOT NULL, INDEX `index_answers_on_question_id` (`question_id`), INDEX `index_answers_on_user_id` (`user_id`))[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.3ms)[0m  [1m[32mINSERT INTO `schema_migrations` (`version`) VALUES ('20210419093923')[0m
+  [1m[36mTRANSACTION (1.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.7ms)[0m  [1m[34mSELECT `ar_internal_metadata`.* FROM `ar_internal_metadata` WHERE `ar_internal_metadata`.`key` = 'environment' LIMIT 1[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT RELEASE_LOCK('4733270473093800225')[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+Started GET "/questions" for ::1 at 2021-04-19 20:23:16 +0530
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+Processing by QuestionsController#index as HTML
+  [1m[36mUser Load (1.1ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 2 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  Rendering layout layouts/application.html.erb
+  Rendering questions/index.html.erb within layouts/application
+  [1m[36mQuestion Load (1.3ms)[0m  [1m[34mSELECT `questions`.* FROM `questions`[0m
+  ↳ app/views/questions/index.html.erb:17
+  Rendered questions/index.html.erb within layouts/application (Duration: 9.5ms | Allocations: 3906)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 36.8ms | Allocations: 17953)
+Completed 200 OK in 67ms (Views: 38.7ms | ActiveRecord: 2.4ms | Allocations: 27482)
+
+
+Started GET "/answers" for ::1 at 2021-04-19 20:23:26 +0530
+Processing by AnswersController#index as HTML
+  [1m[36mUser Load (2.0ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 2 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  Rendering layout layouts/application.html.erb
+  Rendering answers/index.html.erb within layouts/application
+  [1m[36mAnswer Load (1.0ms)[0m  [1m[34mSELECT `answers`.* FROM `answers`[0m
+  ↳ app/views/answers/index.html.erb:17
+  Rendered answers/index.html.erb within layouts/application (Duration: 6.7ms | Allocations: 1034)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 18.8ms | Allocations: 4237)
+Completed 200 OK in 45ms (Views: 21.6ms | ActiveRecord: 3.0ms | Allocations: 7525)
+
+
+Started GET "/answers/new" for ::1 at 2021-04-19 20:23:27 +0530
+Processing by AnswersController#new as HTML
+  [1m[36mUser Load (6.4ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 2 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  Rendering layout layouts/application.html.erb
+  Rendering answers/new.html.erb within layouts/application
+  Rendered answers/_form.html.erb (Duration: 13.4ms | Allocations: 1611)
+  Rendered answers/new.html.erb within layouts/application (Duration: 14.6ms | Allocations: 1952)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 19.4ms | Allocations: 5165)
+Completed 200 OK in 102ms (Views: 20.8ms | ActiveRecord: 27.5ms | Allocations: 11764)
+
+
+Started POST "/answers" for ::1 at 2021-04-19 20:23:40 +0530
+Processing by AnswersController#create as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "answer"=>{"ans_code"=>"yes yes ", "language"=>"ruby ", "time_taken"=>"22", "remark"=>"asfdasfd"}, "commit"=>"Create Answer"}
+  [1m[36mUser Load (6.0ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 2 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  Rendering layout layouts/application.html.erb
+  Rendering answers/new.html.erb within layouts/application
+  Rendered answers/_form.html.erb (Duration: 5.9ms | Allocations: 2012)
+  Rendered answers/new.html.erb within layouts/application (Duration: 6.3ms | Allocations: 2119)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 15.9ms | Allocations: 5263)
+Completed 422 Unprocessable Entity in 63ms (Views: 16.9ms | ActiveRecord: 6.0ms | Allocations: 10022)
+
+
+Started POST "/answers" for ::1 at 2021-04-19 23:32:37 +0530
+  
+ActionController::RoutingError (No route matches [POST] "/answers"):
+  
+Started GET "/answers" for ::1 at 2021-04-19 23:32:46 +0530
+  [1m[35m (3.8ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+  
+ActionController::RoutingError (No route matches [GET] "/answers"):
+  
+Started GET "/questions" for ::1 at 2021-04-19 23:33:43 +0530
+Processing by QuestionsController#index as HTML
+  [1m[36mUser Load (3.0ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 2 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  Rendering layout layouts/application.html.erb
+  Rendering questions/index.html.erb within layouts/application
+  [1m[36mQuestion Load (3.0ms)[0m  [1m[34mSELECT `questions`.* FROM `questions`[0m
+  ↳ app/views/questions/index.html.erb:17
+  Rendered questions/index.html.erb within layouts/application (Duration: 34.1ms | Allocations: 4785)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 87.6ms | Allocations: 15732)
+Completed 200 OK in 152ms (Views: 79.8ms | ActiveRecord: 20.1ms | Allocations: 27677)
+
+
+Started GET "/" for ::1 at 2021-04-19 23:34:00 +0530
+Processing by QuestionsController#index as HTML
+  [1m[36mUser Load (3.1ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 2 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  Rendering layout layouts/application.html.erb
+  Rendering questions/index.html.erb within layouts/application
+  [1m[36mQuestion Load (2.7ms)[0m  [1m[34mSELECT `questions`.* FROM `questions`[0m
+  ↳ app/views/questions/index.html.erb:17
+  Rendered questions/index.html.erb within layouts/application (Duration: 38.8ms | Allocations: 4266)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 68.1ms | Allocations: 7489)
+Completed 200 OK in 116ms (Views: 62.2ms | ActiveRecord: 17.1ms | Allocations: 16588)
+
+
+Started GET "/questions/1" for ::1 at 2021-04-19 23:34:04 +0530
+Processing by QuestionsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (6.2ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 2 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  [1m[36mQuestion Load (5.5ms)[0m  [1m[34mSELECT `questions`.* FROM `questions` WHERE `questions`.`id` = 1 LIMIT 1[0m
+  ↳ app/controllers/questions_controller.rb:62:in `set_question'
+  Rendering layout layouts/application.html.erb
+  Rendering questions/show.html.erb within layouts/application
+  Rendered questions/show.html.erb within layouts/application (Duration: 4.9ms | Allocations: 360)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 26.1ms | Allocations: 4196)
+Completed 200 OK in 65ms (Views: 29.8ms | ActiveRecord: 11.7ms | Allocations: 6576)
+
+
+Started GET "/questions/1" for ::1 at 2021-04-19 23:34:36 +0530
+Processing by QuestionsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (3.9ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 2 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  [1m[36mQuestion Load (4.4ms)[0m  [1m[34mSELECT `questions`.* FROM `questions` WHERE `questions`.`id` = 1 LIMIT 1[0m
+  ↳ app/controllers/questions_controller.rb:62:in `set_question'
+  Rendering layout layouts/application.html.erb
+  Rendering questions/show.html.erb within layouts/application
+  Rendered questions/show.html.erb within layouts/application (Duration: 3.9ms | Allocations: 347)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 35.6ms | Allocations: 3840)
+Completed 200 OK in 66ms (Views: 42.9ms | ActiveRecord: 8.3ms | Allocations: 6752)
+
+
+Started GET "/questions/1/answers/new" for ::1 at 2021-04-19 23:34:38 +0530
+Processing by AnswersController#new as HTML
+  Parameters: {"question_id"=>"1"}
+  [1m[36mUser Load (1.5ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 2 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  Rendering layout layouts/application.html.erb
+  Rendering answers/new.html.erb within layouts/application
+  Rendered answers/_form.html.erb (Duration: 27.2ms | Allocations: 4027)
+  Rendered answers/new.html.erb within layouts/application (Duration: 30.8ms | Allocations: 4354)
+  Rendered layout layouts/application.html.erb (Duration: 38.9ms | Allocations: 4418)
+Completed 500 Internal Server Error in 100ms (ActiveRecord: 9.4ms | Allocations: 11526)
+
+
+  
+ActionView::Template::Error (undefined method `answers_path' for #<ActionView::Base:0x0000000000c738>
+Did you mean?  asset_path):
+    1: <%= form_with(model: answer) do |form| %>
+    2:   <% if answer.errors.any? %>
+    3:     <div id="error_explanation">
+    4:       <h2><%= pluralize(answer.errors.count, "error") %> prohibited this answer from being saved:</h2>
+  
+app/views/answers/_form.html.erb:1
+app/views/answers/new.html.erb:3
+Started GET "/questions/1" for ::1 at 2021-04-19 23:36:35 +0530
+Processing by QuestionsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (1.2ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 2 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  [1m[36mQuestion Load (4.1ms)[0m  [1m[34mSELECT `questions`.* FROM `questions` WHERE `questions`.`id` = 1 LIMIT 1[0m
+  ↳ app/controllers/questions_controller.rb:62:in `set_question'
+  Rendering layout layouts/application.html.erb
+  Rendering questions/show.html.erb within layouts/application
+  Rendered questions/show.html.erb within layouts/application (Duration: 1.3ms | Allocations: 143)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 20.2ms | Allocations: 3340)
+Completed 200 OK in 116ms (Views: 23.2ms | ActiveRecord: 17.1ms | Allocations: 16298)
+
+
+Started GET "/questions/1" for ::1 at 2021-04-19 23:36:37 +0530
+Processing by QuestionsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (1.7ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 2 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  [1m[36mQuestion Load (2.1ms)[0m  [1m[34mSELECT `questions`.* FROM `questions` WHERE `questions`.`id` = 1 LIMIT 1[0m
+  ↳ app/controllers/questions_controller.rb:62:in `set_question'
+  Rendering layout layouts/application.html.erb
+  Rendering questions/show.html.erb within layouts/application
+  Rendered questions/show.html.erb within layouts/application (Duration: 0.5ms | Allocations: 128)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 8.6ms | Allocations: 3325)
+Completed 200 OK in 27ms (Views: 10.5ms | ActiveRecord: 3.8ms | Allocations: 5430)
+
+
+Started GET "/questions/1/answers/new" for ::1 at 2021-04-19 23:36:40 +0530
+Processing by AnswersController#new as HTML
+  Parameters: {"question_id"=>"1"}
+  [1m[36mUser Load (3.7ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 2 ORDER BY `users`.`id` ASC LIMIT 1[0m
+Completed 500 Internal Server Error in 24ms (ActiveRecord: 3.7ms | Allocations: 2298)
+
+
+  
+NoMethodError (undefined method `answer' for nil:NilClass):
+  
+app/controllers/answers_controller.rb:15:in `new'
+Started GET "/questions/1" for ::1 at 2021-04-19 23:37:35 +0530
+Processing by QuestionsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (1.8ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 2 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  [1m[36mQuestion Load (0.9ms)[0m  [1m[34mSELECT `questions`.* FROM `questions` WHERE `questions`.`id` = 1 LIMIT 1[0m
+  ↳ app/controllers/questions_controller.rb:62:in `set_question'
+  Rendering layout layouts/application.html.erb
+  Rendering questions/show.html.erb within layouts/application
+  Rendered questions/show.html.erb within layouts/application (Duration: 1.4ms | Allocations: 143)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 10.7ms | Allocations: 3340)
+Completed 200 OK in 61ms (Views: 11.6ms | ActiveRecord: 11.3ms | Allocations: 16247)
+
+
+Started GET "/questions/1/answers/new" for ::1 at 2021-04-19 23:37:37 +0530
+Processing by AnswersController#new as HTML
+  Parameters: {"question_id"=>"1"}
+  [1m[36mUser Load (7.1ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 2 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  [1m[36mQuestion Load (9.3ms)[0m  [1m[34mSELECT `questions`.* FROM `questions` WHERE `questions`.`id` = 1 LIMIT 1[0m
+  ↳ app/controllers/answers_controller.rb:68:in `set_question'
+Completed 500 Internal Server Error in 65ms (ActiveRecord: 16.4ms | Allocations: 4614)
+
+
+  
+NoMethodError (undefined method `answer' for #<Question:0x00007f7ad84d1750>
+Did you mean?  answers
+               answers=):
+  
+app/controllers/answers_controller.rb:16:in `new'
+Started GET "/questions/1" for ::1 at 2021-04-19 23:37:41 +0530
+Processing by QuestionsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (1.5ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 2 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  [1m[36mQuestion Load (0.8ms)[0m  [1m[34mSELECT `questions`.* FROM `questions` WHERE `questions`.`id` = 1 LIMIT 1[0m
+  ↳ app/controllers/questions_controller.rb:62:in `set_question'
+  Rendering layout layouts/application.html.erb
+  Rendering questions/show.html.erb within layouts/application
+  Rendered questions/show.html.erb within layouts/application (Duration: 3.8ms | Allocations: 128)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 10.3ms | Allocations: 3336)
+Completed 200 OK in 21ms (Views: 12.4ms | ActiveRecord: 2.3ms | Allocations: 5439)
+
+
+Started GET "/questions/1/answers/new" for ::1 at 2021-04-19 23:37:42 +0530
+Processing by AnswersController#new as HTML
+  Parameters: {"question_id"=>"1"}
+  [1m[36mUser Load (4.2ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 2 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  [1m[36mQuestion Load (7.4ms)[0m  [1m[34mSELECT `questions`.* FROM `questions` WHERE `questions`.`id` = 1 LIMIT 1[0m
+  ↳ app/controllers/answers_controller.rb:68:in `set_question'
+Completed 500 Internal Server Error in 59ms (ActiveRecord: 11.6ms | Allocations: 5025)
+
+
+  
+NoMethodError (undefined method `answer' for #<Question:0x00007f7ad87da168>
+Did you mean?  answers
+               answers=):
+  
+app/controllers/answers_controller.rb:16:in `new'
+Started GET "/questions/1/answers/new" for ::1 at 2021-04-19 23:37:53 +0530
+Processing by AnswersController#new as HTML
+  Parameters: {"question_id"=>"1"}
+  [1m[36mUser Load (3.5ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 2 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  [1m[36mQuestion Load (2.1ms)[0m  [1m[34mSELECT `questions`.* FROM `questions` WHERE `questions`.`id` = 1 LIMIT 1[0m
+  ↳ app/controllers/answers_controller.rb:68:in `set_question'
+  Rendering layout layouts/application.html.erb
+  Rendering answers/new.html.erb within layouts/application
+  Rendered answers/_form.html.erb (Duration: 22.0ms | Allocations: 3622)
+  Rendered answers/new.html.erb within layouts/application (Duration: 22.6ms | Allocations: 3714)
+  Rendered layout layouts/application.html.erb (Duration: 23.0ms | Allocations: 3778)
+Completed 500 Internal Server Error in 241ms (ActiveRecord: 32.3ms | Allocations: 25542)
+
+
+  
+ActionView::Template::Error (undefined method `answers_path' for #<ActionView::Base:0x00000000013448>
+Did you mean?  asset_path):
+    1: <%= form_with(model: answer) do |form| %>
+    2:   <% if answer.errors.any? %>
+    3:     <div id="error_explanation">
+    4:       <h2><%= pluralize(answer.errors.count, "error") %> prohibited this answer from being saved:</h2>
+  
+app/views/answers/_form.html.erb:1
+app/views/answers/new.html.erb:3
+Started GET "/questions/1/answers/new" for ::1 at 2021-04-19 23:45:07 +0530
+Processing by AnswersController#new as HTML
+  Parameters: {"question_id"=>"1"}
+  [1m[36mUser Load (6.6ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 2 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  [1m[36mQuestion Load (4.1ms)[0m  [1m[34mSELECT `questions`.* FROM `questions` WHERE `questions`.`id` = 1 LIMIT 1[0m
+  ↳ app/controllers/answers_controller.rb:68:in `set_question'
+  Rendering layout layouts/application.html.erb
+  Rendering answers/new.html.erb within layouts/application
+  Rendered answers/_form.html.erb (Duration: 66.9ms | Allocations: 4949)
+  Rendered answers/new.html.erb within layouts/application (Duration: 70.7ms | Allocations: 5272)
+  Rendered layout layouts/application.html.erb (Duration: 71.8ms | Allocations: 5336)
+Completed 500 Internal Server Error in 119ms (ActiveRecord: 17.2ms | Allocations: 8669)
+
+
+  
+ActionView::Template::Error (undefined local variable or method `question' for #<ActionView::Base:0x00000000013808>
+Did you mean?  @question):
+    1: <%= form_with(model: question, url: [@question, @answer]) do |form| %>
+    2:   <% if answer.errors.any? %>
+    3:     <div id="error_explanation">
+    4:       <h2><%= pluralize(answer.errors.count, "error") %> prohibited this answer from being saved:</h2>
+  
+app/views/answers/_form.html.erb:1
+app/views/answers/new.html.erb:3
+Started GET "/questions/1/answers/new" for ::1 at 2021-04-19 23:45:26 +0530
+Processing by AnswersController#new as HTML
+  Parameters: {"question_id"=>"1"}
+  [1m[36mUser Load (5.3ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 2 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  [1m[36mQuestion Load (6.3ms)[0m  [1m[34mSELECT `questions`.* FROM `questions` WHERE `questions`.`id` = 1 LIMIT 1[0m
+  ↳ app/controllers/answers_controller.rb:68:in `set_question'
+  Rendering layout layouts/application.html.erb
+  Rendering answers/new.html.erb within layouts/application
+  Rendered answers/_form.html.erb (Duration: 58.9ms | Allocations: 8153)
+  Rendered answers/new.html.erb within layouts/application (Duration: 111.9ms | Allocations: 12736)
+  Rendered layout layouts/application.html.erb (Duration: 112.8ms | Allocations: 12800)
+Completed 500 Internal Server Error in 150ms (ActiveRecord: 11.6ms | Allocations: 15869)
+
+
+  
+ActionView::Template::Error (undefined local variable or method `answers_path' for #<ActionView::Base:0x00000000013c68>
+Did you mean?  asset_path):
+    2: 
+    3: <%= render 'form', answer: @answer %>
+    4: 
+    5: <%= link_to 'Back', answers_path %>
+  
+app/views/answers/new.html.erb:5
+Started GET "/questions/1/answers/new" for ::1 at 2021-04-19 23:46:21 +0530
+Processing by AnswersController#new as HTML
+  Parameters: {"question_id"=>"1"}
+  [1m[36mUser Load (5.3ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 2 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  [1m[36mQuestion Load (2.9ms)[0m  [1m[34mSELECT `questions`.* FROM `questions` WHERE `questions`.`id` = 1 LIMIT 1[0m
+  ↳ app/controllers/answers_controller.rb:68:in `set_question'
+  Rendering layout layouts/application.html.erb
+  Rendering answers/new.html.erb within layouts/application
+  Rendered answers/_form.html.erb (Duration: 12.3ms | Allocations: 1468)
+  Rendered answers/new.html.erb within layouts/application (Duration: 14.2ms | Allocations: 1808)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 29.0ms | Allocations: 5308)
+Completed 200 OK in 59ms (Views: 35.5ms | ActiveRecord: 8.2ms | Allocations: 8405)
+
+
+Started PATCH "/questions/1/answers" for ::1 at 2021-04-19 23:49:13 +0530
+  
+ActionController::RoutingError (No route matches [PATCH] "/questions/1/answers"):
+  
+Started GET "/questions/1/answers/new" for ::1 at 2021-04-19 23:49:47 +0530
+Processing by AnswersController#new as HTML
+  Parameters: {"question_id"=>"1"}
+  [1m[36mUser Load (2.1ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 2 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  [1m[36mQuestion Load (2.4ms)[0m  [1m[34mSELECT `questions`.* FROM `questions` WHERE `questions`.`id` = 1 LIMIT 1[0m
+  ↳ app/controllers/answers_controller.rb:68:in `set_question'
+  Rendering layout layouts/application.html.erb
+  Rendering answers/new.html.erb within layouts/application
+  Rendered answers/_form.html.erb (Duration: 5.0ms | Allocations: 1104)
+  Rendered answers/new.html.erb within layouts/application (Duration: 5.7ms | Allocations: 1212)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 13.0ms | Allocations: 4419)
+Completed 200 OK in 26ms (Views: 14.6ms | ActiveRecord: 4.4ms | Allocations: 6711)
+
+
+Started PATCH "/questions/1/answers" for ::1 at 2021-04-19 23:49:53 +0530
+  
+ActionController::RoutingError (No route matches [PATCH] "/questions/1/answers"):
+  
+Started GET "/questions/1/answers/new" for ::1 at 2021-04-19 23:51:24 +0530
+Processing by AnswersController#new as HTML
+  Parameters: {"question_id"=>"1"}
+  [1m[36mUser Load (3.6ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 2 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  [1m[36mQuestion Load (2.9ms)[0m  [1m[34mSELECT `questions`.* FROM `questions` WHERE `questions`.`id` = 1 LIMIT 1[0m
+  ↳ app/controllers/answers_controller.rb:68:in `set_question'
+  Rendering layout layouts/application.html.erb
+  Rendering answers/new.html.erb within layouts/application
+  Rendered answers/_form.html.erb (Duration: 8.6ms | Allocations: 1558)
+  Rendered answers/new.html.erb within layouts/application (Duration: 10.6ms | Allocations: 1898)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 19.6ms | Allocations: 5395)
+Completed 200 OK in 48ms (Views: 22.8ms | ActiveRecord: 6.6ms | Allocations: 8493)
+
+
+Started GET "/questions/1/answers/new" for ::1 at 2021-04-19 23:51:25 +0530
+Processing by AnswersController#new as HTML
+  Parameters: {"question_id"=>"1"}
+  [1m[36mUser Load (5.3ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 2 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  [1m[36mQuestion Load (8.6ms)[0m  [1m[34mSELECT `questions`.* FROM `questions` WHERE `questions`.`id` = 1 LIMIT 1[0m
+  ↳ app/controllers/answers_controller.rb:68:in `set_question'
+  Rendering layout layouts/application.html.erb
+  Rendering answers/new.html.erb within layouts/application
+  Rendered answers/_form.html.erb (Duration: 6.1ms | Allocations: 1070)
+  Rendered answers/new.html.erb within layouts/application (Duration: 6.8ms | Allocations: 1178)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 14.8ms | Allocations: 4374)
+Completed 200 OK in 47ms (Views: 19.0ms | ActiveRecord: 14.0ms | Allocations: 6667)
+
+
+Started GET "/questions/1/answers/new" for ::1 at 2021-04-19 23:51:26 +0530
+Processing by AnswersController#new as HTML
+  Parameters: {"question_id"=>"1"}
+  [1m[36mUser Load (5.6ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 2 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  [1m[36mQuestion Load (1.8ms)[0m  [1m[34mSELECT `questions`.* FROM `questions` WHERE `questions`.`id` = 1 LIMIT 1[0m
+  ↳ app/controllers/answers_controller.rb:68:in `set_question'
+  Rendering layout layouts/application.html.erb
+  Rendering answers/new.html.erb within layouts/application
+  Rendered answers/_form.html.erb (Duration: 6.4ms | Allocations: 1065)
+  Rendered answers/new.html.erb within layouts/application (Duration: 7.8ms | Allocations: 1172)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 14.8ms | Allocations: 4368)
+Completed 200 OK in 37ms (Views: 15.6ms | ActiveRecord: 7.4ms | Allocations: 6660)
+
+
+Started POST "/questions/1/answers" for ::1 at 2021-04-19 23:51:32 +0530
+Processing by AnswersController#create as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "answer"=>{"ans_code"=>"asca", "language"=>"asdfsd", "time_taken"=>"1", "remark"=>"sdfasdf"}, "commit"=>"Create Answer", "question_id"=>"1"}
+  [1m[36mUser Load (16.6ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 2 ORDER BY `users`.`id` ASC LIMIT 1[0m
+Completed 500 Internal Server Error in 76619ms (ActiveRecord: 16.6ms | Allocations: 81707)
+
+
+  
+SystemExit (exit):
+  
+(byebug):1:in `exit'
+(byebug):1:in `create'
+app/controllers/answers_controller.rb:26:in `create'
+Started GET "/questions/1/answers/new" for ::1 at 2021-04-19 23:53:02 +0530
+  [1m[35m (1.1ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+Processing by AnswersController#new as HTML
+  Parameters: {"question_id"=>"1"}
+  [1m[36mUser Load (2.1ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 2 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  [1m[36mQuestion Load (2.5ms)[0m  [1m[34mSELECT `questions`.* FROM `questions` WHERE `questions`.`id` = 1 LIMIT 1[0m
+  ↳ app/controllers/answers_controller.rb:68:in `set_question'
+  Rendering layout layouts/application.html.erb
+  Rendering answers/new.html.erb within layouts/application
+  Rendered answers/_form.html.erb (Duration: 39.8ms | Allocations: 5765)
+  Rendered answers/new.html.erb within layouts/application (Duration: 44.0ms | Allocations: 6225)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 90.9ms | Allocations: 12421)
+Completed 200 OK in 295ms (Views: 98.9ms | ActiveRecord: 22.9ms | Allocations: 36637)
+
+
+Started GET "/questions/1/answers/new" for ::1 at 2021-04-19 23:55:18 +0530
+Processing by AnswersController#new as HTML
+  Parameters: {"question_id"=>"1"}
+  [1m[36mUser Load (5.7ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 2 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  [1m[36mQuestion Load (1.1ms)[0m  [1m[34mSELECT `questions`.* FROM `questions` WHERE `questions`.`id` = 1 LIMIT 1[0m
+  ↳ app/controllers/answers_controller.rb:70:in `set_question'
+  Rendering layout layouts/application.html.erb
+  Rendering answers/new.html.erb within layouts/application
+  Rendered answers/_form.html.erb (Duration: 8.1ms | Allocations: 1180)
+  Rendered answers/new.html.erb within layouts/application (Duration: 8.8ms | Allocations: 1289)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 26.5ms | Allocations: 4445)
+Completed 200 OK in 107ms (Views: 28.7ms | ActiveRecord: 19.6ms | Allocations: 22803)
+
+
+Started POST "/questions/1/answers" for ::1 at 2021-04-19 23:55:32 +0530
+Processing by AnswersController#create as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "answer"=>{"ans_code"=>"puts 1+1", "language"=>"ruby 2", "time_taken"=>"2", "remark"=>"asfdasfd"}, "commit"=>"Create Answer", "question_id"=>"1"}
+  [1m[36mUser Load (5.4ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 2 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  [1m[36mQuestion Load (2.8ms)[0m  [1m[34mSELECT `questions`.* FROM `questions` WHERE `questions`.`id` = 1 LIMIT 1[0m
+  ↳ app/controllers/answers_controller.rb:70:in `set_question'
+  [1m[36mTRANSACTION (8.5ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/answers_controller.rb:31:in `block in create'
+  [1m[36mUser Load (10.1ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 2 LIMIT 1[0m
+  ↳ app/controllers/answers_controller.rb:31:in `block in create'
+  [1m[36mAnswer Create (3.3ms)[0m  [1m[32mINSERT INTO `answers` (`ans_code`, `language`, `time_taken`, `remark`, `question_id`, `user_id`, `created_at`, `updated_at`) VALUES ('puts 1+1', 'ruby 2', 2, 'asfdasfd', 1, 2, '2021-04-19 18:25:51.613705', '2021-04-19 18:25:51.613705')[0m
+  ↳ app/controllers/answers_controller.rb:31:in `block in create'
+  [1m[36mTRANSACTION (3.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/answers_controller.rb:31:in `block in create'
+Redirected to 
+Completed 500 Internal Server Error in 19162ms (ActiveRecord: 33.2ms | Allocations: 56092)
+
+
+  
+NoMethodError (undefined method `answer_url' for #<AnswersController:0x0000000000c1e8>):
+  
+app/controllers/answers_controller.rb:32:in `block (2 levels) in create'
+app/controllers/answers_controller.rb:30:in `create'
+Started GET "/questions" for ::1 at 2021-04-19 23:57:07 +0530
+Processing by QuestionsController#index as HTML
+  [1m[36mUser Load (3.0ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 2 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  Rendering layout layouts/application.html.erb
+  Rendering questions/index.html.erb within layouts/application
+  [1m[36mQuestion Load (1.3ms)[0m  [1m[34mSELECT `questions`.* FROM `questions`[0m
+  ↳ app/views/questions/index.html.erb:17
+  Rendered questions/index.html.erb within layouts/application (Duration: 19.3ms | Allocations: 4573)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 27.4ms | Allocations: 7909)
+Completed 200 OK in 70ms (Views: 25.4ms | ActiveRecord: 12.1ms | Allocations: 17769)
+
+
+Started GET "/questions/2" for ::1 at 2021-04-19 23:57:10 +0530
+Processing by QuestionsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mUser Load (1.9ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 2 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  [1m[36mQuestion Load (1.8ms)[0m  [1m[34mSELECT `questions`.* FROM `questions` WHERE `questions`.`id` = 2 LIMIT 1[0m
+  ↳ app/controllers/questions_controller.rb:62:in `set_question'
+  Rendering layout layouts/application.html.erb
+  Rendering questions/show.html.erb within layouts/application
+  Rendered questions/show.html.erb within layouts/application (Duration: 5.5ms | Allocations: 354)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 29.0ms | Allocations: 4168)
+Completed 200 OK in 46ms (Views: 32.3ms | ActiveRecord: 3.6ms | Allocations: 6528)
+
+
+Started GET "/questions/2/answers/new" for ::1 at 2021-04-19 23:57:11 +0530
+Processing by AnswersController#new as HTML
+  Parameters: {"question_id"=>"2"}
+  [1m[36mUser Load (4.5ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 2 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  [1m[36mQuestion Load (3.5ms)[0m  [1m[34mSELECT `questions`.* FROM `questions` WHERE `questions`.`id` = 2 LIMIT 1[0m
+  ↳ app/controllers/answers_controller.rb:70:in `set_question'
+  Rendering layout layouts/application.html.erb
+  Rendering answers/new.html.erb within layouts/application
+  Rendered answers/_form.html.erb (Duration: 3.2ms | Allocations: 1196)
+  Rendered answers/new.html.erb within layouts/application (Duration: 3.8ms | Allocations: 1305)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 12.7ms | Allocations: 4442)
+Completed 200 OK in 75ms (Views: 13.9ms | ActiveRecord: 13.3ms | Allocations: 12854)
+
+
+Started POST "/questions/2/answers" for ::1 at 2021-04-19 23:57:29 +0530
+Processing by AnswersController#create as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "answer"=>{"ans_code"=>"puts(\"hello world\")", "language"=>"ruby ", "time_taken"=>"3", "remark"=>"sfsdfsd"}, "commit"=>"Create Answer", "question_id"=>"2"}
+  [1m[36mUser Load (5.7ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 2 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  [1m[36mQuestion Load (2.0ms)[0m  [1m[34mSELECT `questions`.* FROM `questions` WHERE `questions`.`id` = 2 LIMIT 1[0m
+  ↳ app/controllers/answers_controller.rb:70:in `set_question'
+  [1m[36mTRANSACTION (17.8ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/answers_controller.rb:31:in `block in create'
+  [1m[36mUser Load (9.4ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 2 LIMIT 1[0m
+  ↳ app/controllers/answers_controller.rb:31:in `block in create'
+  [1m[36mAnswer Create (6.7ms)[0m  [1m[32mINSERT INTO `answers` (`ans_code`, `language`, `time_taken`, `remark`, `question_id`, `user_id`, `created_at`, `updated_at`) VALUES ('puts(\"hello world\")', 'ruby ', 3, 'sfsdfsd', 2, 2, '2021-04-19 18:27:36.248997', '2021-04-19 18:27:36.248997')[0m
+  ↳ app/controllers/answers_controller.rb:31:in `block in create'
+  [1m[36mTRANSACTION (4.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/answers_controller.rb:31:in `block in create'
+Redirected to http://localhost:3000/questions.2
+Completed 302 Found in 6856ms (ActiveRecord: 45.7ms | Allocations: 8760)
+
+
+Started GET "/questions.2" for ::1 at 2021-04-19 23:57:36 +0530
+Processing by QuestionsController#index as */*
+  [1m[36mUser Load (2.5ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 2 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  Rendering layout layouts/application.html.erb
+  Rendering questions/index.html.erb within layouts/application
+  [1m[36mQuestion Load (4.8ms)[0m  [1m[34mSELECT `questions`.* FROM `questions`[0m
+  ↳ app/views/questions/index.html.erb:17
+  Rendered questions/index.html.erb within layouts/application (Duration: 12.5ms | Allocations: 975)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 25.9ms | Allocations: 4172)
+Completed 200 OK in 43ms (Views: 23.3ms | ActiveRecord: 7.4ms | Allocations: 5893)
+
+
+Started GET "/" for ::1 at 2021-05-04 18:08:15 +0530
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+Processing by QuestionsController#index as HTML
+Completed 401 Unauthorized in 10ms (ActiveRecord: 0.0ms | Allocations: 1691)
+
+
+Started GET "/users/sign_in" for ::1 at 2021-05-04 18:08:15 +0530
+Processing by Devise::SessionsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (Duration: 0.9ms | Allocations: 613)
+  Rendered devise/sessions/new.html.erb within layouts/application (Duration: 4.2ms | Allocations: 2808)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 12.0ms | Allocations: 9104)
+Completed 200 OK in 37ms (Views: 15.1ms | ActiveRecord: 2.3ms | Allocations: 18677)
+
+

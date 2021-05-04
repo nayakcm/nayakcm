@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Intro</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%#= stylesheet_link_tag 'style.css' %>
+    <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <body>
+
+      <section class="text-center m-5">
+
+          <% if current_user %>
+              <h5>Welcome <%= current_user.email %></h5>
+          <%end%>
+          <div class = "sign-out"><%=
+              link_to_if(current_user.nil?, "Login", new_user_session_path, class: 'btn btn-primary m-5') do
+                  link_to('Sign out',  destroy_user_session_path, :method => 'delete', class: 'btn btn-danger m-5')
+              end
+          %></div>
+    </section>
+
+     <%= yield %>
+  </body>
+  <style type=”text/css”>
+           div{
+               color:blue;
+           }
+    </style>
+</html>

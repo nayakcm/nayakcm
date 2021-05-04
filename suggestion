@@ -1,0 +1,20 @@
+rails g scaffold Question title:string description:text level:string time_taken:integer
+
+rails g scaffold Answer  ans_code:text language:string time_taken:integer remark:string
+
+rails g scaffold Exam  
+
+rails g scaffold test  
+
+question :- 
+Time 
+hard level
+test cases 
+
+ Results : model 
+
+test : model 
+
+exam   : model 
+
+will have test 
